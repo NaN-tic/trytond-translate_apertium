@@ -8,6 +8,30 @@ Installing
 
 See INSTALL
 
+Apertium
+---------------------
+
+Apertium package and language packages:
+
+apertium - Shallow-transfer machine translation engine
+apertium-en-ca - Apertium linguistic data to translate between English and Catalan
+apertium-en-es - Apertium linguistic data to translate between English and Spanish
+apertium-eo-ca - Apertium linguistic data to translate between Esperanto and Catalan
+apertium-eo-es - Apertium linguistic data to translate between Esperanto and Spanish
+apertium-es-ca - Apertium linguistic data to translate between Spanish and Catalan
+apertium-es-gl - Apertium linguistic data to translate between Spanish and Galician
+apertium-es-pt - Apertium linguistic data to translate between Spanish and Portuguese
+apertium-es-ro - Apertium linguistic data to translate between Spanish and Romanian
+apertium-eu-es - Apertium linguistic data to translate between Basque and Spanish
+apertium-fr-ca - Apertium linguistic data to translate between French and Catalan
+apertium-fr-es - Apertium linguistic data to translate between French and Spanish
+apertium-oc-ca - Apertium linguistic data to translate between Occitan and Catalan
+apertium-oc-es - Apertium linguistic data to translate between Occitan and Spanish
+apertium-pt-ca - Apertium linguistic data to translate between Portuguese and Catalan
+apertium-pt-gl - Apertium linguistic data to translate between Portuguese and Galician
+
+More information: http://wiki.apertium.org/wiki/Installation
+
 Support
 -------
 
