@@ -1,0 +1,11 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:translate.wizard.translation:"
+msgid "Error translating the string %s."
+msgstr "Error traduciendo %s."
+
+msgctxt "selection:translate.wizard.start,translator:"
+msgid "Apertium"
+msgstr "Apertium"
