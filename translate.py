@@ -35,9 +35,14 @@ class TranslateWizardTranslation:
 
     @classmethod
     def get_translation_from_apertium(cls, text, source_lang, target_lang):
-        proccess = Popen('echo "%s" | apertium %s-%s' %
-            (text, source_lang[:2], target_lang[:2]),
-            shell=True, stdout=PIPE, stderr=PIPE)
+        cmd = 'echo "%s" | apertium %s-%s' % (
+            text,
+            source_lang[:2],
+            target_lang[:2],
+            )
+        # force utf8 - TypeError: execv() arg 2 must contain only strings
+        cmd = cmd.encode('utf-8')
+        proccess = Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE)
         out, error = proccess.communicate()
         if error:
             cls.raise_user_error('error_translating', error_args=(text,))
