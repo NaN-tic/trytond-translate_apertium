@@ -2,7 +2,7 @@
 # The COPYRIGHT file at the top level of this repository contains the full
 # copyright notices and license terms.
 import subprocess
-from trytond.pool import PoolMeta
+from trytond.pool import Pool, PoolMeta
 
 __all__ = ['TranslateWizardStart', 'TranslateWizardTranslation']
 __metaclass__ = PoolMeta
@@ -43,8 +43,13 @@ class TranslateWizardTranslation:
 
     @classmethod
     def get_translation_from_apertium(cls, text, source_lang, target_lang):
+        Config = Pool().get('translate.configuration')
+        trans_config = Config(1)
+
         lang = '%s-%s' % (source_lang[:2], target_lang[:2])
         cmd = ['apertium', lang]
+        if trans_config.apertium_unknown_words:
+            cmd.append('-u')
         out, error = apertium_output(cmd, text)
         if error:
             cls.raise_user_error('error_translating', error_args=(text,))

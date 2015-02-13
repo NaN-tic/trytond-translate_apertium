@@ -13,6 +13,10 @@ class TranslateApertiumTestCase(unittest.TestCase):
     def setUp(self):
         trytond.tests.test_tryton.install_module('translate_apertium')
 
+    def test0005views(self):
+        'Test views'
+        test_view('translate')
+
     def test0006depends(self):
         'Test depends'
         test_depends()
