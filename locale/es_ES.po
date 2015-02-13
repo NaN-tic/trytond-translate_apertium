@@ -6,6 +6,18 @@ msgctxt "error:translate.wizard.translation:"
 msgid "Error translating the string %s."
 msgstr "Error traduciendo %s."
 
+msgctxt "field:translate.configuration,apertium_unknown_words:"
+msgid "Unknown Words"
+msgstr "Palabras desconocidas"
+
+msgctxt "help:translate.configuration,apertium_unknown_words:"
+msgid "Dissable Apertium unknown words"
+msgstr "Desactivar palabras desconocidas"
+
 msgctxt "selection:translate.wizard.start,translator:"
+msgid "Apertium"
+msgstr "Apertium"
+
+msgctxt "view:translate.configuration:"
 msgid "Apertium"
 msgstr "Apertium"
