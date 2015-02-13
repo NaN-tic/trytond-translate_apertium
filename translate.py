@@ -1,11 +1,19 @@
 # This file is part of translate_apertium module for Tryton.
 # The COPYRIGHT file at the top level of this repository contains the full
 # copyright notices and license terms.
-from subprocess import Popen, PIPE
+import subprocess
 from trytond.pool import PoolMeta
 
 __all__ = ['TranslateWizardStart', 'TranslateWizardTranslation']
 __metaclass__ = PoolMeta
+
+
+def apertium_output(cmd, stdin=''):
+    process = subprocess.Popen(cmd, stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+    stdout, stderr = process.communicate(stdin.encode('utf-8'))
+    process.wait()
+    return unicode(stdout, 'utf-8'), stderr
 
 
 class TranslateWizardStart:
@@ -35,15 +43,9 @@ class TranslateWizardTranslation:
 
     @classmethod
     def get_translation_from_apertium(cls, text, source_lang, target_lang):
-        cmd = 'echo "%s" | apertium %s-%s' % (
-            text,
-            source_lang[:2],
-            target_lang[:2],
-            )
-        # force utf8 - TypeError: execv() arg 2 must contain only strings
-        cmd = cmd.encode('utf-8')
-        proccess = Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE)
-        out, error = proccess.communicate()
+        lang = '%s-%s' % (source_lang[:2], target_lang[:2])
+        cmd = ['apertium', lang]
+        out, error = apertium_output(cmd, text)
         if error:
             cls.raise_user_error('error_translating', error_args=(text,))
         return out.strip('\r\n')
