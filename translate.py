@@ -5,7 +5,6 @@ import subprocess
 from trytond.pool import Pool, PoolMeta
 
 __all__ = ['TranslateWizardStart', 'TranslateWizardTranslation']
-__metaclass__ = PoolMeta
 
 
 def apertium_output(cmd, stdin=''):
@@ -17,6 +16,7 @@ def apertium_output(cmd, stdin=''):
 
 
 class TranslateWizardStart:
+    __metaclass__ = PoolMeta
     __name__ = 'translate.wizard.start'
 
     @classmethod
@@ -31,6 +31,7 @@ class TranslateWizardStart:
 
 
 class TranslateWizardTranslation:
+    __metaclass__ = PoolMeta
     __name__ = 'translate.wizard.translation'
 
     @classmethod
